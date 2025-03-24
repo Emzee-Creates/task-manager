@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Task Manager</h1>
+        <button id="logoutButton" style="display: none;">Logout</button>
+    </header>
+
+    <!-- Authentication Section -->
+    <section id="authSection">
+        <div id="loginForm">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button id="loginButton">Login</button>
+        </div>
+
+        <div id="registerForm">
+            <h2>Register</h2>
+            <input type="text" id="registerUsername" placeholder="Username">
+            <input type="email" id="registerEmail" placeholder="Email">
+            <input type="password" id="registerPassword" placeholder="Password">
+            <button id="registerButton">Register</button>
+        </div>
+    </section>
+
+    <!-- Task Manager Section -->
+    <section id="taskManager" style="display: none;">
+        <!-- Task Form -->
+        <form id="taskForm">
+            <input type="text" id="taskInput" placeholder="Enter task name" required>
+            <input type="date" id="taskDeadline">
+            <select id="taskUrgency">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <button id="prioritizeButton">Prioritize Tasks</button>
+
+        <!-- Tasks Display -->
+        <div class="task-container" ondragover="allowDrop(event)" ondrop="drop(event, false)">
+            <h3>Incomplete Tasks</h3>
+            <ul id="taskList"></ul>
+        </div>
+
+        <div class="task-container" ondragover="allowDrop(event)" ondrop="drop(event, true)">
+            <h3>Completed Tasks</h3>
+            <ul id="completedList"></ul>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
